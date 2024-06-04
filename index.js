@@ -88,7 +88,7 @@ function start() {
   render();
   calculateAveragePrice();
   clearInterval(addFreelancerIntervalId);
-  addFreelancerIntervalId = setInterval(addFreelancer, 1000);
+  addFreelancerIntervalId = setInterval(addFreelancer, 2000);
 }
 
 function render() {
