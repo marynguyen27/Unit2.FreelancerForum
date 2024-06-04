@@ -1,0 +1,13 @@
+#freelancers {
+  list-style: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+#average-price {
+  color: green;
+  font-size: 23px;
+  font-style: italic;
+  font-weight: bold;
+  border: 1px solid;
+}
