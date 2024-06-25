@@ -1,88 +1,66 @@
-const FREELANCERS = [
-  {
-    name: 'Alice',
-    occupation: 'Writer',
-    startingPrice: 30,
-  },
-  {
-    name: 'Bob',
-    occupation: 'Teacher',
-    startingPrice: 75,
-  },
-  {
-    name: 'Carol',
-    occupation: 'Programmer',
-    startingPrice: 100,
-  },
-  {
-    name: 'Sarah',
-    occupation: 'Gardener',
-    startingPrice: 20,
-  },
-  {
-    name: 'Jennifer',
-    occupation: 'Driver',
-    startingPrice: 35,
-  },
-  {
-    name: 'George',
-    occupation: 'Cleaner',
-    startingPrice: 40,
-  },
-  {
-    name: 'Pamela',
-    occupation: 'Assistant',
-    startingPrice: 85,
-  },
-  {
-    name: 'Olivia',
-    occupation: 'Dog Walker',
-    startingPrice: 35,
-  },
-  {
-    name: 'Lisa',
-    occupation: 'Designer',
-    startingPrice: 70,
-  },
-  {
-    name: 'Cassie',
-    occupation: 'House Painter',
-    startingPrice: 25,
-  },
-  {
-    name: 'Bill',
-    occupation: 'Personal Chef',
-    startingPrice: 50,
-  },
-  {
-    name: 'Kristie',
-    occupation: 'Translator',
-    startingPrice: 65,
-  },
-  {
-    name: 'Dave',
-    occupation: 'Photographer',
-    startingPrice: 55,
-  },
-  {
-    name: 'Fred',
-    occupation: 'Hair Stylist',
-    startingPrice: 75,
-  },
-  {
-    name: 'Steve',
-    occupation: 'Artist',
-    startingPrice: 50,
-  },
-  {
-    name: 'Janelle',
-    occupation: 'Florist',
-    startingPrice: 75,
-  },
+const POSSIBLE_NAMES = [
+  'Alice',
+  'Bob',
+  'Carol',
+  'Sarah',
+  'Jennifer',
+  'George',
+  'Pamela',
+  'Olivia',
+  'Lisa',
+  'Cassie',
+  'Bill',
+  'Kristie',
+  'Dave',
+  'Fred',
+  'Steve',
+  'Janelle',
 ];
+
+const POSSIBLE_OCCUPATIONS = [
+  'Writer',
+  'Teacher',
+  'Programmer',
+  'Gardener',
+  'Driver',
+  'Cleaner',
+  'Assistant',
+  'Dog Walker',
+  'Designer',
+  'House Painter',
+  'Personal Chef',
+  'Translator',
+  'Photographer',
+  'Hair Stylist',
+  'Artist',
+  'Florist',
+];
+
+const FREELANCERS = [];
+
+function generateRandomFreelancer() {
+  const name =
+    POSSIBLE_NAMES[Math.floor(Math.random() * POSSIBLE_NAMES.length)];
+  const occupation =
+    POSSIBLE_OCCUPATIONS[
+      Math.floor(Math.random() * POSSIBLE_OCCUPATIONS.length)
+    ];
+  const startingPrice = Math.floor(Math.random() * 101); // Random price between 0 and 100
+
+  const newFreelancer = { name, occupation, startingPrice };
+  FREELANCERS.push(newFreelancer);
+}
+
+for (let i = 0; i < 16; i++) {
+  generateRandomFreelancer();
+}
 
 let displayedFreelancers = [...FREELANCERS.slice(0, 2)];
 let addFreelancerIntervalId;
+
+document.addEventListener('DomContentLoaded', () => {
+  start();
+});
 
 function start() {
   render();
